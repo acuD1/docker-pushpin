@@ -53,3 +53,14 @@ docker run \
 Note: The Docker entrypoint may make modifications to `pushpin.conf` so it runs properly in its container, exposing ports `7999`, `5560`, `5561`, `5562`, and `5563`.
 
 See project documentation for more on [configuring Pushpin](https://pushpin.org/docs/configuration/).
+
+
+# Octolo
+
+For now routes for docker are hardcoded to `host.docker.internal:8000`.
+
+
+```bash
+docker buildx build --platform linux/arm64 -t pushpin:local .
+docker run -p 7999:7999 -p 5560-5563:5560-5563 --platform linux/arm64 -v $PWD/config/routes:/etc/pushpin/routes --rm --name pushpin pushpin:local
+```
