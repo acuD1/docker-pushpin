@@ -32,7 +32,7 @@ RUN \
 
 # COPY config/internal/internal.conf /usr/lib/pushpin
 # Add entrypoint script
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY ./Docker/pushpin/docker-entrypoint.sh /usr/local/bin/
 
 # Define default entrypoint and command
 ENTRYPOINT ["docker-entrypoint.sh"]
